@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Me - Website Keren</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            background-color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #6e8efb;
+            color: white;
+        }
+        .btn-support {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .main-content {
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .section-title {
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+        .support-content {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .support-text {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .support-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .support-method {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .support-method:hover {
+            transform: translateY(-5px);
+        }
+        .method-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #6e8efb;
+        }
+        .method-title {
+            margin-bottom: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #6e8efb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #5a7df4;
+        }
+        .btn-donate {
+            background: #ff6b6b;
+        }
+        .btn-donate:hover {
+            background: #ff5252;
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            .nav-links {
+                margin-top: 1rem;
+            }
+            .nav-links li {
+                margin: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">WebsiteKeren</h1>
+            <p>Dukung Saya untuk Terus Berkarya</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">WK</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="produk.html">Produk</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html" class="btn-support">Support Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content container">
+        <h2 class="section-title">Support Me</h2>
+        
+        <div class="support-content">
+            <div class="support-text">
+                <p>Halo! Jika Anda merasa website ini bermanfaat dan ingin mendukung saya untuk terus berkarya, Anda bisa memberikan dukungan melalui beberapa metode di bawah ini.</p>
+                <p>Dukungan Anda sangat berarti untuk pengembangan website ini ke depannya. Terima kasih!</p>
+            </div>
+            
+            <div class="support-methods">
+                <div class="support-method">
+                    <div class="method-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="method-title">Donasi Langsung</h3>
+                    <p>Kirim donasi langsung melalui transfer bank atau dompet digital</p>
+                    <a href="payment.html" class="btn btn-donate">Donasi Sekarang</a>
+                </div>
+                
+                <div class="support-method">
+                    <div class="method-icon">
+                        <i class="fab fa-patreon"></i>
+                    </div>
+                    <h3 class="method-title">Patreon</h3>
+                    <p>Jadi patron di Patreon untuk dukungan bulanan dan dapatkan keuntungan eksklusif</p>
+                    <a href="#" class="btn">Buka Patreon</a>
+                </div>
+                
+                <div class="support-method">
+                    <div class="method-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3 class="method-title">Bagikan</h3>
+                    <p>Bantu sebarkan website ini ke teman-teman Anda</p>
+                    <div class="social-share">
+                        <a href="#" class="btn" style="margin-right: 0.5rem;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn" style="margin-right: 0.5rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 site by tukam</p>
+        </div>
+    </footer>
+</body>
+</html>

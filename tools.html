@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools - website aztukam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            background-color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #6e8efb;
+            color: white;
+        }
+        
+        .btn-support {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .main-content {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+        
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            color: #6e8efb;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Kalkulator Styles */
+        .calculator {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .calculator-screen {
+            width: 100%;
+            height: 60px;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1.5rem;
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+        
+        .calculator-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+        
+        .calculator-btn {
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .calculator-btn:hover {
+            background-color: #e9ecef;
+        }
+        
+        .calculator-btn.operator {
+            background-color: #6e8efb;
+            color: white;
+        }
+        
+        .calculator-btn.operator:hover {
+            background-color: #5a7df4;
+        }
+        
+        .calculator-btn.equal {
+            background-color: #28a745;
+            color: white;
+            grid-column: span 2;
+        }
+        
+        .calculator-btn.equal:hover {
+            background-color: #218838;
+        }
+        
+        .calculator-btn.clear {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .calculator-btn.clear:hover {
+            background-color: #c82333;
+        }
+        
+        /* Konverter Suhu Styles */
+        .converter {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .converter-group {
+            margin-bottom: 1rem;
+        }
+        
+        .converter-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .converter-input, .converter-result {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .converter-select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .converter-btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #6e8efb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .converter-btn:hover {
+            background-color: #5a7df4;
+        }
+        
+        /* Text Analyzer Styles */
+        .text-analyzer {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .text-analyzer-input {
+            width: 100%;
+            height: 150px;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+        
+        .text-analyzer-btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #6e8efb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 1rem;
+        }
+        
+        .text-analyzer-btn:hover {
+            background-color: #5a7df4;
+        }
+        
+        .text-stats {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 1rem;
+        }
+        
+        .text-stat-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Password Generator Styles */
+        .password-generator {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+        .password-result {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-family: monospace;
+            background-color: #f8f9fa;
+        }
+        
+        .password-options {
+            margin-bottom: 1rem;
+        }
+        
+        .password-option {
+            margin-bottom: 0.5rem;
+        }
+        
+        .password-length {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        .password-btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #6e8efb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .password-btn:hover {
+            background-color: #5a7df4;
+        }
+        
+        /* New Tools Styles */
+        .color-picker {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+        .color-preview {
+            width: 100%;
+            height: 100px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+        }
+        
+        .color-value {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-family: monospace;
+            background-color: #f8f9fa;
+        }
+        
+        /* Instagram Tool Styles */
+        .instagram-tool {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .instagram-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .instagram-btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #6e8efb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 0.5rem;
+        }
+        
+        .instagram-btn:hover {
+            background-color: #5a7df4;
+        }
+        
+        .instagram-btn.red {
+            background-color: #dc3545;
+        }
+        
+        .instagram-btn.red:hover {
+            background-color: #c82333;
+        }
+        
+        .instagram-btn.green {
+            background-color: #28a745;
+        }
+        
+        .instagram-btn.green:hover {
+            background-color: #218838;
+        }
+        
+        .instagram-results {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+            }
+            
+            .nav-links li {
+                margin: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">website aztukam</h1>
+            <p>Kumpulan Tools Praktis untuk Kebutuhan Digital Anda</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">AZ</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="produk.html">Produk</a></li>
+                <li><a href="tools.html">Tools</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html" class="btn-support">Support Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content container">
+        <h2 class="section-title">Tools Kami</h2>
+        
+        <div class="tools-container">
+            <!-- Kalkulator -->
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3 class="tool-title">Kalkulator</h3>
+                
+                <div class="calculator">
+                    <input type="text" class="calculator-screen" value="" disabled />
+                    
+                    <div class="calculator-keys">
+                        <button type="button" class="calculator-btn operator" value="+">+</button>
+                        <button type="button" class="calculator-btn operator" value="-">-</button>
+                        <button type="button" class="calculator-btn operator" value="*">&times;</button>
+                        <button type="button" class="calculator-btn operator" value="/">&divide;</button>
+                        
+                        <button type="button" class="calculator-btn" value="7">7</button>
+                        <button type="button" class="calculator-btn" value="8">8</button>
+                        <button type="button" class="calculator-btn" value="9">9</button>
+                        
+                        <button type="button" class="calculator-btn" value="4">4</button>
+                        <button type="button" class="calculator-btn" value="5">5</button>
+                        <button type="button" class="calculator-btn" value="6">6</button>
+                        
+                        <button type="button" class="calculator-btn" value="1">1</button>
+                        <button type="button" class="calculator-btn" value="2">2</button>
+                        <button type="button" class="calculator-btn" value="3">3</button>
+                        
+                        <button type="button" class="calculator-btn" value="0">0</button>
+                        <button type="button" class="calculator-btn" value=".">.</button>
+                        <button type="button" class="calculator-btn clear" value="all-clear">AC</button>
+                        
+                        <button type="button" class="calculator-btn equal" value="=">=</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Konverter Suhu -->
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-temperature-high"></i>
+                </div>
+                <h3 class="tool-title">Konverter Suhu</h3>
+                
+                <div class="converter">
+                    <div class="converter-group">
+                        <label class="converter-label">Masukkan Suhu:</label>
+                        <input type="number" class="converter-input" id="temperature-input" placeholder="Masukkan angka">
+                    </div>
+                    
+                    <div class="converter-group">
+                        <label class="converter-label">Dari:</label>
+                        <select class="converter-select" id="from-unit">
+                            <option value="celsius">Celsius (°C)</option>
+                            <option value="fahrenheit">Fahrenheit (°F)</option>
+                            <option value="kelvin">Kelvin (K)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="converter-group">
+                        <label class="converter-label">Ke:</label>
+                        <select class="converter-select" id="to-unit">
+                            <option value="fahrenheit">Fahrenheit (°F)</option>
+                            <option value="celsius">Celsius (°C)</option>
+                            <option value="kelvin">Kelvin (K)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="converter-btn" id="convert-btn">Konversi</button>
+                    
+                    <div class="converter-group">
+                        <label class="converter-label">Hasil:</label>
+                        <input type="text" class="converter-result" id="temperature-result" readonly>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text Analyzer -->
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3 class="tool-title">Analisis Teks</h3>
+                
+                <div class="text-analyzer">
+                    <textarea class="text-analyzer-input" id="text-input" placeholder="Masukkan teks yang ingin dianalisis..."></textarea>
+                    <button class="text-analyzer-btn" id="analyze-btn">Analisis Teks</button>
+                    
+                    <div class="text-stats" id="text-stats">
+                        <div class="text-stat-item"><strong>Jumlah Karakter:</strong> <span id="char-count">0</span></div>
+                        <div class="text-stat-item"><strong>Jumlah Kata:</strong> <span id="word-count">0</span></div>
+                        <div class="text-stat-item"><strong>Jumlah Baris:</strong> <span id="line-count">0</span></div>
+                        <div class="text-stat-item"><strong>Kepadatan Kata:</strong> <span id="word-density">0</span> kata/baris</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Password Generator -->
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3 class="tool-title">Password Generator</h3>
+                
+                <div class="password-generator">
+                    <input type="text" class="password-result" id="password-result" readonly>
+                    
+                    <div class="password-options">
+                        <div class="password-option">
+                            <label>
+                                <input type="checkbox" id="uppercase" checked>
+                                Huruf Besar (A-Z)
+                            </label>
+                        </div>
+                        <div class="password-option">
+                            <label>
+                                <input type="checkbox" id="lowercase" checked>
+                                Huruf Kecil (a-z)
+                            </label>
+                        </div>
+                        <div class="password-option">
+                            <label>
+                                <input type="checkbox" id="numbers" checked>
+                                Angka (0-9)
+                            </label>
+                        </div>
+                        <div class="password-option">
+                            <label>
+                                <input type="checkbox" id="symbols">
+                                Simbol (!@#$%^&*)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="converter-group">
+                        <label class="converter-label">Panjang Password: <span id="length-value">12</span></label>
+                        <input type="range" class="password-length" id="password-length" min="6" max="32" value="12">
+                    </div>
+                    
+                    <button class="password-btn" id="generate-btn">Generate Password</button>
+                    <button class="password-btn" id="copy-btn" style="background-color: #28a745;">Copy Password</button>
+                </div>
+            </div>
+            
+            <!-- Color Picker -->
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="tool-title">Color Picker</h3>
+                
+                <div class="color-picker">
+                    <div class="color-preview" id="color-preview" style="background-color: #6e8efb;"></div>
+                    <input type="color" id="color-selector" value="#6e8efb" style="width: 100%; margin-bottom: 1rem;">
+                    <input type="text" class="color-value" id="color-value" value="#6e8efb" readonly>
+                    <button class="converter-btn" id="copy-color-btn">Copy Color Code</button>
+                </div>
+            </div>
+            
+            <!-- Unit Converter -->
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-ruler-combined"></i>
+                </div>
+                <h3 class="tool-title">Unit Converter</h3>
+                
+                <div class="converter">
+                    <div class="converter-group">
+                        <label class="converter-label">Nilai:</label>
+                        <input type="number" class="converter-input" id="unit-input" placeholder="Masukkan angka">
+                    </div>
+                    
+                    <div class="converter-group">
+                        <label class="converter-label">Dari:</label>
+                        <select class="converter-select" id="unit-from">
+                            <option value="cm">Centimeter (cm)</option>
+                            <option value="m">Meter (m)</option>
+                            <option value="km">Kilometer (km)</option>
+                            <option value="in">Inch (in)</option>
+                            <option value="ft">Feet (ft)</option>
+                            <option value="mi">Mile (mi)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="converter-group">
+                        <label class="converter-label">Ke:</label>
+                        <select class="converter-select" id="unit-to">
+                            <option value="m">Meter (m)</option>
+                            <option value="cm">Centimeter (cm)</option>
+                            <option value="km">Kilometer (km)</option>
+                            <option value="in">Inch (in)</option>
+                            <option value="ft">Feet (ft)</option>
+                            <option value="mi">Mile (mi)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="converter-btn" id="unit-convert-btn">Konversi</button>
+                    
+                    <div class="converter-group">
+                        <label class="converter-label">Hasil:</label>
+                        <input type="text" class="converter-result" id="unit-result" readonly>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Instagram Tool -->
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <h3 class="tool-title">Instagram Info Tool</h3>
+                
+                <div class="instagram-tool">
+                    <input type="text" class="instagram-input" id="instagram-username" placeholder="Enter Instagram username">
+                    
+                    <button class="instagram-btn" id="get-info-btn">Get Account Info</button>
+                    <button class="instagram-btn red" id="get-posts-btn">Download Posts</button>
+                    <button class="instagram-btn green" id="get-stories-btn">Download Stories</button>
+                    
+                    <div class="instagram-results" id="instagram-results">
+                        Results will appear here...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 website aztukam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Kalkulator
+        const calculator = {
+            displayValue: '0',
+            firstOperand: null,
+            waitingForSecondOperand: false,
+            operator: null,
+        };
+
+        function updateDisplay() {
+            const display = document.querySelector('.calculator-screen');
+            display.value = calculator.displayValue;
+        }
+
+        function inputDigit(digit) {
+            const { displayValue, waitingForSecondOperand } = calculator;
+            
+            if (waitingForSecondOperand === true) {
+                calculator.displayValue = digit;
+                calculator.waitingForSecondOperand = false;
+            } else {
+                calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+            }
+        }
+
+        function inputDecimal(dot) {
+            if (calculator.waitingForSecondOperand === true) {
+                calculator.displayValue = '0.';
+                calculator.waitingForSecondOperand = false;
+                return;
+            }
+            
+            if (!calculator.displayValue.includes(dot)) {
+                calculator.displayValue += dot;
+            }
+        }
+
+        function handleOperator(nextOperator) {
+            const { firstOperand, displayValue, operator } = calculator;
+            const inputValue = parseFloat(displayValue);
+            
+            if (operator && calculator.waitingForSecondOperand) {
+                calculator.operator = nextOperator;
+                return;
+            }
+            
+            if (firstOperand == null && !isNaN(inputValue)) {
+                calculator.firstOperand = inputValue;
+            } else if (operator) {
+                const result = calculate(firstOperand, inputValue, operator);
+                
+                calculator.displayValue = `${parseFloat(result.toFixed(7))}`;
+                calculator.firstOperand = result;
+            }
+            
+            calculator.waitingForSecondOperand = true;
+            calculator.operator = nextOperator;
+        }
+
+        function calculate(firstOperand, secondOperand, operator) {
+            switch (operator) {
+                case '+':
+                    return firstOperand + secondOperand;
+                case '-':
+                    return firstOperand - secondOperand;
+                case '*':
+                    return firstOperand * secondOperand;
+                case '/':
+                    return firstOperand / secondOperand;
+                default:
+                    return secondOperand;
+            }
+        }
+
+        function resetCalculator() {
+            calculator.displayValue = '0';
+            calculator.firstOperand = null;
+            calculator.waitingForSecondOperand = false;
+            calculator.operator = null;
+        }
+
+        // Event listeners untuk kalkulator
+        const keys = document.querySelector('.calculator-keys');
+        keys.addEventListener('click', (event) => {
+            const { target } = event;
+            if (!target.matches('button')) {
+                return;
+            }
+            
+            if (target.classList.contains('operator')) {
+                handleOperator(target.value);
+                updateDisplay();
+                return;
+            }
+            
+            if (target.classList.contains('decimal')) {
+                inputDecimal(target.value);
+                updateDisplay();
+                return;
+            }
+            
+            if (target.classList.contains('clear')) {
+                resetCalculator();
+                updateDisplay();
+                return;
+            }
+            
+            if (target.classList.contains('equal')) {
+                if (calculator.firstOperand !== null && calculator.operator !== null) {
+                    handleOperator(target.value);
+                }
+                updateDisplay();
+                return;
+            }
+            
+            inputDigit(target.value);
+            updateDisplay();
+        });
+
+        // Konverter Suhu
+        document.getElementById('convert-btn').addEventListener('click', function() {
+            const inputTemp = parseFloat(document.getElementById('temperature-input').value);
+            const fromUnit = document.getElementById('from-unit').value;
+            const toUnit = document.getElementById('to-unit').value;
+            
+            if (isNaN(inputTemp)) {
+                alert('Masukkan suhu yang valid');
+                return;
+            }
+            
+            let result;
+            
+            // Konversi ke Celsius dulu
+            let celsius;
+            switch (fromUnit) {
+                case 'celsius':
+                    celsius = inputTemp;
+                    break;
+                case 'fahrenheit':
+                    celsius = (inputTemp - 32) * 5/9;
+                    break;
+                case 'kelvin':
+                    celsius = inputTemp - 273.15;
+                    break;
+            }
+            
+            // Konversi dari Celsius ke unit tujuan
+            switch (toUnit) {
+                case 'celsius':
+                    result = celsius;
+                    break;
+                case 'fahrenheit':
+                    result = (celsius * 9/5) + 32;
+                    break;
+                case 'kelvin':
+                    result = celsius + 273.15;
+                    break;
+            }
+            
+            document.getElementById('temperature-result').value = result.toFixed(2);
+        });
+
+        // Text Analyzer
+        document.getElementById('analyze-btn').addEventListener('click', function() {
+            const text = document.getElementById('text-input').value;
+            
+            // Hitung jumlah karakter
+            const charCount = text.length;
+            
+            // Hitung jumlah kata
+            const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+            
+            // Hitung jumlah baris
+            const lineCount = text === '' ? 0 : text.split('\n').length;
+            
+            // Hitung kepadatan kata
+            const wordDensity = lineCount > 0 ? (wordCount / lineCount).toFixed(2) : 0;
+            
+            // Update statistik
+            document.getElementById('char-count').textContent = charCount;
+            document.getElementById('word-count').textContent = wordCount;
+            document.getElementById('line-count').textContent = lineCount;
+            document.getElementById('word-density').textContent = wordDensity;
+        });
+
+        // Password Generator
+        document.getElementById('password-length').addEventListener('input', function() {
+            document.getElementById('length-value').textContent = this.value;
+        });
+
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            const length = parseInt(document.getElementById('password-length').value);
+            const uppercase = document.getElementById('uppercase').checked;
+            const lowercase = document.getElementById('lowercase').checked;
+            const numbers = document.getElementById('numbers').checked;
+            const symbols = document.getElementById('symbols').checked;
+            
+            let charset = '';
+            if (uppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (lowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
+            if (numbers) charset += '0123456789';
+            if (symbols) charset += '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+            
+            if (charset === '') {
+                alert('Pilih setidaknya satu opsi karakter');
+                return;
+            }
+            
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+            
+            document.getElementById('password-result').value = password;
+        });
+
+        document.getElementById('copy-btn').addEventListener('click', function() {
+            const password = document.getElementById('password-result').value;
+            if (password === '') {
+                alert('Generate password terlebih dahulu');
+                return;
+            }
+            
+            navigator.clipboard.writeText(password).then(() => {
+                alert('Password berhasil disalin ke clipboard');
+            });
+        });
+
+        // Color Picker
+        const colorPicker = document.getElementById('color-selector');
+        const colorPreview = document.getElementById('color-preview');
+        const colorValue = document.getElementById('color-value');
+        const copyColorBtn = document.getElementById('copy-color-btn');
+        
+        colorPicker.addEventListener('input', function() {
+            const selectedColor = this.value;
+            colorPreview.style.backgroundColor = selectedColor;
+            colorValue.value = selectedColor;
+        });
+        
+        copyColorBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(colorValue.value).then(() => {
+                alert('Kode warna berhasil disalin: ' + colorValue.value);
+            });
+        });
+
+        // Unit Converter
+        document.getElementById('unit-convert-btn').addEventListener('click', function() {
+            const inputValue = parseFloat(document.getElementById('unit-input').value);
+            const fromUnit = document.getElementById('unit-from').value;
+            const toUnit = document.getElementById('unit-to').value;
+            
+            if (isNaN(inputValue)) {
+                alert('Masukkan nilai yang valid');
+                return;
+            }
+            
+            // Konversi ke meter dulu
+            let meters;
+            switch (fromUnit) {
+                case 'cm':
+                    meters = inputValue / 100;
+                    break;
+                case 'm':
+                    meters = inputValue;
+                    break;
+                case 'km':
+                    meters = inputValue * 1000;
+                    break;
+                case 'in':
+                    meters = inputValue * 0.0254;
+                    break;
+                case 'ft':
+                    meters = inputValue * 0.3048;
+                    break;
+                case 'mi':
+                    meters = inputValue * 1609.344;
+                    break;
+            }
+            
+            // Konversi dari meter ke unit tujuan
+            let result;
+            switch (toUnit) {
+                case 'cm':
+                    result = meters * 100;
+                    break;
+                case 'm':
+                    result = meters;
+                    break;
+                case 'km':
+                    result = meters / 1000;
+                    break;
+                case 'in':
+                    result = meters / 0.0254;
+                    break;
+                case 'ft':
+                    result = meters / 0.3048;
+                    break;
+                case 'mi':
+                    result = meters / 1609.344;
+                    break;
+            }
+            
+            document.getElementById('unit-result').value = result.toFixed(4);
+        });
+
+        // Instagram Tool
+        document.getElementById('get-info-btn').addEventListener('click', function() {
+            const username = document.getElementById('instagram-username').value.trim();
+            if (!username) {
+                alert('Please enter an Instagram username');
+                return;
+            }
+            
+            document.getElementById('instagram-results').textContent = `Fetching account info for ${username}...`;
+            
+            // In a real implementation, you would make an API call here
+            // For demonstration, we'll simulate a response
+            setTimeout(() => {
+                const mockResponse = `
+Username: ${username}
+Full Name: Demo User
+Followers: 1234
+Following: 567
+Posts: 42
+Bio: This is a demo bio for ${username}
+Private: No
+Business: Yes
+Email: ${username}@example.com
+Phone: +1234567890
+`;
+                document.getElementById('instagram-results').textContent = mockResponse;
+            }, 1500);
+        });
+
+        document.getElementById('get-posts-btn').addEventListener('click', function() {
+            const username = document.getElementById('instagram-username').value.trim();
+            if (!username) {
+                alert('Please enter an Instagram username');
+                return;
+            }
+            
+            document.getElementById('instagram-results').textContent = `Downloading posts for ${username}...`;
+            
+            // In a real implementation, you would make an API call here
+            setTimeout(() => {
+                document.getElementById('instagram-results').textContent = `Downloaded 5 posts from ${username} to ${username}_posts folder`;
+            }, 2000);
+        });
+
+        document.getElementById('get-stories-btn').addEventListener('click', function() {
+            const username = document.getElementById('instagram-username').value.trim();
+            if (!username) {
+                alert('Please enter an Instagram username');
+                return;
+            }
+            
+            document.getElementById('instagram-results').textContent = `Downloading stories for ${username}...`;
+            
+            // In a real implementation, you would make an API call here
+            setTimeout(() => {
+                document.getElementById('instagram-results').textContent = `Downloaded 3 stories from ${username} to ${username}_stories folder`;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
